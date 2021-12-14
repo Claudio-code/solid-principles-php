@@ -1,0 +1,15 @@
+{
+    "name": "claudio/solid-principles-php",
+    "autoload": {
+        "psr-4": {
+            "Claudio\\SolidPrinciplesPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "claudio-code",
+            "email": "suporte2424@outlook.com"
+        }
+    ],
+    "require": {}
+}
