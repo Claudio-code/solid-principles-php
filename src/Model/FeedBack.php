@@ -4,16 +4,15 @@ namespace Claudio\SolidPrinciplesPhp\Model;
 
 class FeedBack
 {
-    private int $note;
-    private ?string $statement = null;
+    public readonly int $note;
+    public readonly string $statement;
     
     public function __construct(int $note, ?string $statement)
     {
-        if ($note < 9 && empty($testimonial)) {
-            throw new \DomainException("Mandatory testimonial");
-        }
-
+        $this->statement = match ($note < 9 && empty($testimonial)) {
+            true => throw new \DomainException("Mandatory testimonial"),
+            default => $statement,
+        };
         $this->note = $note;
-        $this->statement = $statement;
     }
 }

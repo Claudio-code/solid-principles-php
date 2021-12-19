@@ -2,7 +2,7 @@
 
 namespace Claudio\SolidPrinciplesPhp\Model;
 
-class AluraPlus extends Video
+class AluraPlus extends Video implements Scoreable
 {
     private string $category;
 
@@ -15,5 +15,10 @@ class AluraPlus extends Video
     public function recoverUrl(): string
     {
         return str_replace(' ', '-', strtolower($this->category));
+    }
+
+    public function getScore(): int
+    {
+        return $this->minutesOfDuration() * 2;
     }
 }

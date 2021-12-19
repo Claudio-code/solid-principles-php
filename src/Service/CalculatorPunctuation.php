@@ -2,16 +2,12 @@
 
 namespace Claudio\SolidPrinciplesPhp\Service;
 
-use Claudio\SolidPrinciplesPhp\Model\AluraPlus;
-use Claudio\SolidPrinciplesPhp\Model\Course;
+use Claudio\SolidPrinciplesPhp\Model\Scoreable;
 
 class CalculatorPunctuation
 {
-    public function recoverPunctuation(Course | AluraPlus $content): int
+    public function recoverPunctuation(Scoreable $content): int
     {
-        return match ($content instanceof Course) {
-            true => 100,
-            default => $content->minutesOfDuration() * 2,
-        };
+        return $content->getScore();
     }
 }

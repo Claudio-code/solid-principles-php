@@ -2,10 +2,10 @@
 
 namespace Claudio\SolidPrinciplesPhp\Model;
 
-class Course
+class Course implements Scoreable
 {
     public function __construct(
-        private string $name,
+        public readonly string $name,
         private array $videos = [],
         private array $feedbacks = [],
     ) {
@@ -18,16 +18,26 @@ class Course
 
     public function addVideo(Video $video): void
     {
-        if ($video->minutesOfDuration() < 3) {
-            throw new \DomainException("very short video");
-        }
-
-        $this->videos[] = $video;
+        $this->videos[] = match ($video->minutesOfDuration() < 3) {
+            true => throw new \DomainException("very short video"),
+            default => $video,
+        };
     }
 
     /** @return Video[] */
     public function recoverVideos(): array
     {
         return $this->videos;
+    }
+
+    /** @return FeedBack[] */
+    public function recoverFeedback(): array
+    {
+        return $this->feedbacks;
+    }
+
+    public function getScore(): int
+    {
+        return 100;
     }
 }
