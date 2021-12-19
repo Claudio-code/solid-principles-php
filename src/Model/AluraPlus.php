@@ -2,7 +2,10 @@
 
 namespace Claudio\SolidPrinciplesPhp\Model;
 
-class AluraPlus extends Video implements Scoreable
+use Claudio\SolidPrinciplesPhp\Model\Interfaces\Scoreable;
+use Claudio\SolidPrinciplesPhp\Model\Interfaces\Watch;
+
+class AluraPlus extends Video implements Scoreable, Watch
 {
     private string $category;
 

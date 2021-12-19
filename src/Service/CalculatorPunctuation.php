@@ -2,7 +2,7 @@
 
 namespace Claudio\SolidPrinciplesPhp\Service;
 
-use Claudio\SolidPrinciplesPhp\Model\Scoreable;
+use Claudio\SolidPrinciplesPhp\Model\Interfaces\Scoreable;
 
 class CalculatorPunctuation
 {

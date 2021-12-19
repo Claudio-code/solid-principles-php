@@ -2,7 +2,10 @@
 
 namespace Claudio\SolidPrinciplesPhp\Model;
 
-class Course implements Scoreable
+use Claudio\SolidPrinciplesPhp\Model\Interfaces\Scoreable;
+use Claudio\SolidPrinciplesPhp\Model\Interfaces\Watch;
+
+class Course implements Scoreable, Watch
 {
     public function __construct(
         public        readonly string $name,
