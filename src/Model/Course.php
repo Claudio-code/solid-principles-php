@@ -39,4 +39,11 @@ class Course implements Scoreable
     {
         return 100;
     }
+
+    public function watch(): void
+    {
+        foreach ($this->recoverVideos() as $video) {
+            $video->watch();
+        }
+    }
 }

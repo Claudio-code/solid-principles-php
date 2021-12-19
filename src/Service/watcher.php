@@ -2,20 +2,12 @@
 
 namespace Claudio\SolidPrinciplesPhp\Service;
 
-use Claudio\SolidPrinciplesPhp\Model\AluraPlus;
-use Claudio\SolidPrinciplesPhp\Model\Course;
+use Claudio\SolidPrinciplesPhp\Model\Scoreable;
 
 class watcher
 {
-    public function watchCourse(Course $course): void
+    public function watchScoreableContents(Scoreable $scoreable)
     {
-        foreach ($course->recoverVideos() as $video) {
-            $video->watch();
-        }
-    }
-
-    public function watchAluraPlus(AluraPlus $aluraPlus): void
-    {
-        $aluraPlus->watch();
+        $scoreable->watch();
     }
 }
