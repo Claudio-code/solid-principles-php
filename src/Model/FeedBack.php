@@ -6,7 +6,7 @@ class FeedBack
 {
     public readonly int $note;
     public readonly string $statement;
-    
+
     public function __construct(int $note, ?string $statement)
     {
         $this->statement = match ($note < 9 && empty($testimonial)) {

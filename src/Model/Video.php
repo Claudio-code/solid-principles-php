@@ -6,9 +6,10 @@ class Video
 {
     protected string $name;
     protected bool $watched = false;
-    protected  \DateInterval $duration;
+    protected \DateInterval $duration;
 
-    public function __construct(string $name) {
+    public function __construct(string $name)
+    {
         $this->name = $name;
         $this->duration = \DateInterval::createFromDateString('0');
     }
@@ -20,7 +21,7 @@ class Video
 
     public function minutesOfDuration(): int
     {
-        return  $this->duration->i;
+        return $this->duration->i;
     }
 
     public function recoverUrl(): string

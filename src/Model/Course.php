@@ -5,11 +5,10 @@ namespace Claudio\SolidPrinciplesPhp\Model;
 class Course implements Scoreable
 {
     public function __construct(
-        public readonly string $name,
+        public        readonly string $name,
         private array $videos = [],
         private array $feedbacks = [],
-    ) {
-    }
+    ) {}
 
     public function receiveFeedback(FeedBack $feedBack): void
     {
