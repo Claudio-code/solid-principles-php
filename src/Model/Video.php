@@ -2,6 +2,8 @@
 
 namespace Claudio\SolidPrinciplesPhp\Model;
 
+use Claudio\SolidPrinciplesPhp\Enum\UrlBaseEnum;
+
 class Video
 {
     protected string $name;
@@ -26,6 +28,7 @@ class Video
 
     public function recoverUrl(): string
     {
-        return 'http://videos.alura.com.br/' . http_build_query(['nome' => $this->name]);
+        $path = http_build_query(['nome' => $this->name]);
+        return UrlBaseEnum::ALURA_URL->value . $path;
     }
 }

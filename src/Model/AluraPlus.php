@@ -14,7 +14,11 @@ class AluraPlus extends Video implements Scoreable
 
     public function recoverUrl(): string
     {
-        return str_replace(' ', '-', strtolower($this->category));
+        $categorySlug = new Slug($this->category);
+        $nameSlug = new Slug($this->name);
+        $path = $categorySlug . '/' . $nameSlug;
+
+        return parent::recoverUrl() . $path;
     }
 
     public function getScore(): int
